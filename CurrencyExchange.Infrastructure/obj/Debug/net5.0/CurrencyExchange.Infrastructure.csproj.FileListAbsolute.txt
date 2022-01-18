@@ -1,0 +1,15 @@
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\bin\Debug\net5.0\CurrencyExchange.Infrastructure.deps.json
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\bin\Debug\net5.0\CurrencyExchange.Infrastructure.dll
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\bin\Debug\net5.0\ref\CurrencyExchange.Infrastructure.dll
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\bin\Debug\net5.0\CurrencyExchange.Infrastructure.pdb
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\bin\Debug\net5.0\CurrencyExchange.Core.dll
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\bin\Debug\net5.0\CurrencyExchange.Core.pdb
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj\Debug\net5.0\CurrencyExchange.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj\Debug\net5.0\CurrencyExchange.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj\Debug\net5.0\CurrencyExchange.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj\Debug\net5.0\CurrencyExchange.Infrastructure.AssemblyInfo.cs
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj\Debug\net5.0\CurrencyExchange.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj\Debug\net5.0\CurrencyExchange.Infrastructure.csproj.CopyComplete
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj\Debug\net5.0\CurrencyExchange.Infrastructure.dll
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj\Debug\net5.0\ref\CurrencyExchange.Infrastructure.dll
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj\Debug\net5.0\CurrencyExchange.Infrastructure.pdb

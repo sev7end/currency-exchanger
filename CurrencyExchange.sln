@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyExchange.Web", "CurrencyExchange.Web\CurrencyExchange.Web.csproj", "{09CAFD38-F9AD-4A88-B109-E969A8B4CC4D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D96AFF37-7490-4ECB-9562-C03F76F2D26A} = {D96AFF37-7490-4ECB-9562-C03F76F2D26A}
+		{6BBAAFF0-605D-497E-A065-9DD783C8DA72} = {6BBAAFF0-605D-497E-A065-9DD783C8DA72}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyExchange.Core", "CurrencyExchange.Core\CurrencyExchange.Core.csproj", "{6BBAAFF0-605D-497E-A065-9DD783C8DA72}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyExchange.Infrastructure", "CurrencyExchange.Infrastructure\CurrencyExchange.Infrastructure.csproj", "{D96AFF37-7490-4ECB-9562-C03F76F2D26A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09CAFD38-F9AD-4A88-B109-E969A8B4CC4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09CAFD38-F9AD-4A88-B109-E969A8B4CC4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09CAFD38-F9AD-4A88-B109-E969A8B4CC4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09CAFD38-F9AD-4A88-B109-E969A8B4CC4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BBAAFF0-605D-497E-A065-9DD783C8DA72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BBAAFF0-605D-497E-A065-9DD783C8DA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BBAAFF0-605D-497E-A065-9DD783C8DA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BBAAFF0-605D-497E-A065-9DD783C8DA72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D96AFF37-7490-4ECB-9562-C03F76F2D26A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D96AFF37-7490-4ECB-9562-C03F76F2D26A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D96AFF37-7490-4ECB-9562-C03F76F2D26A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D96AFF37-7490-4ECB-9562-C03F76F2D26A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F273B4F-64DF-447E-BA06-CC6799DDCD82}
+	EndGlobalSection
+EndGlobal

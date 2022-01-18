@@ -1,0 +1,12 @@
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Core\bin\Debug\net5.0\CurrencyExchange.Core.deps.json
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Core\bin\Debug\net5.0\CurrencyExchange.Core.dll
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Core\bin\Debug\net5.0\ref\CurrencyExchange.Core.dll
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Core\bin\Debug\net5.0\CurrencyExchange.Core.pdb
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Core\obj\Debug\net5.0\CurrencyExchange.Core.csproj.AssemblyReference.cache
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Core\obj\Debug\net5.0\CurrencyExchange.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Core\obj\Debug\net5.0\CurrencyExchange.Core.AssemblyInfoInputs.cache
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Core\obj\Debug\net5.0\CurrencyExchange.Core.AssemblyInfo.cs
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Core\obj\Debug\net5.0\CurrencyExchange.Core.csproj.CoreCompileInputs.cache
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Core\obj\Debug\net5.0\CurrencyExchange.Core.dll
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Core\obj\Debug\net5.0\ref\CurrencyExchange.Core.dll
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Core\obj\Debug\net5.0\CurrencyExchange.Core.pdb
