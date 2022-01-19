@@ -9,6 +9,6 @@ namespace CurrencyExchange.Core.Managers
 {
     public interface IExchangeManager
     {
-        Task<IExchangeData> RequestCurrencyExchange(string clientName, string personalNumber, int fromCurrency, int toCurrency, decimal amount);
+        Task RequestCurrencyExchange(string clientName, string personalNumber, int fromCurrency, int toCurrency, decimal amount);
     }
 }

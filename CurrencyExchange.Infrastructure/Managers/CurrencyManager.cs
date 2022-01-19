@@ -6,6 +6,7 @@ using CurrencyExchange.Infrastructure.Models;
 using CurrencyExchange.Infrastructure.Repository;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace CurrencyExchange.Infrastructure.Managers
             try
             {
                 string json = (new WebClient()).DownloadString("https://nbg.gov.ge/gw/api/ct/monetarypolicy/currencies/ka/json");
-                return JsonConvert.DeserializeObject<CurrencyDatas>(json);
+                return JsonConvert.DeserializeObject<List<CurrencyDatas>>(json).First();
             }
             catch (Exception ex) {
                 return null;
@@ -36,7 +37,7 @@ namespace CurrencyExchange.Infrastructure.Managers
             switch (type)
             {
                 case CurrencyType.USD:
-                    return await currencyRepository.GetCurrencyByCode("USD");
+                    return await currencyRepository.GetCurrencyByCode("USD"); ;
                 case CurrencyType.RUB:
                     return await currencyRepository.GetCurrencyByCode("RUB");
                 case CurrencyType.GBP:
@@ -45,16 +46,16 @@ namespace CurrencyExchange.Infrastructure.Managers
                     return null;
             } 
         }
-        public async Task<bool> GetCurrencyUpdate()
+        public async Task GetCurrencyUpdate()
         {
             CurrencyDatas Items = GetCurrencyFromNet();
-            var DbItems = await currencyRepository.GetAllCurrencyDatasAsync();
-            if (DbItems.LastOrDefault().validFromDate != Items.date && Items != null)
-            {
-                await currencyRepository.UpdateCurrencyDatas(Items.currencies);
-                return true;
-            }
-            return false;
+            var data = Items.currencies.Where(o => o.code == "USD" || o.code == "RUB" || o.code == "GBP").ToList();
+            if (data != null)
+                await currencyRepository.UpdateCurrencyDatas(ForAll<CurrencyModel,ICurrency>(data).ToList());
+        }
+        private IEnumerable<I> ForAll<T, I>(IList<T> lst) where T : I
+        {
+            foreach (I item in lst) yield return item;
         }
     }
 }

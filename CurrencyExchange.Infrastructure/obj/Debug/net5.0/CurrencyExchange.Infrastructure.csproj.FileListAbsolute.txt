@@ -13,3 +13,6 @@ C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj
 C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj\Debug\net5.0\CurrencyExchange.Infrastructure.dll
 C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj\Debug\net5.0\ref\CurrencyExchange.Infrastructure.dll
 C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj\Debug\net5.0\CurrencyExchange.Infrastructure.pdb
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\bin\Debug\net5.0\CurrencyExchange.Infrastructure.runtimeconfig.json
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\bin\Debug\net5.0\CurrencyExchange.Infrastructure.runtimeconfig.dev.json
+C:\Users\tokoq\source\repos\CurrencyExchange\CurrencyExchange.Infrastructure\obj\Debug\net5.0\CurrencyExchange.Infrastructure.genruntimeconfig.cache

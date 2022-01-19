@@ -1,8 +1,165 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<CurrencyExchange.Core.Models.IExchangeData>
+    @*@model CurrencyExchange.Web.Models.ConversionRequestViewModel*@
+@*@model CurrencyExchange.Web.Models.ConversionRequestViewModel;*@
+@{
+    ViewData["Title"] = "Conversion Center";
 }
-
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div style="width: 500px; margin: auto;">
+        <form id="requestConversion">
+            <div class="form-group">
+                <label for="clientName">Full name</label>
+                <input type="text" class="form-control" id="clientName" name="clientName" placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="personalNumber">Personal number</label>
+                <input type="text" class="form-control" maxlength="11" name="personalNumber" id="personalNumber" onkeypress="return validateNumber(event)" placeholder="00-XXX-XXX-XXX">
+            </div>
+            <div style="display: flex; justify-content: space-evenly;">
+                <div class="form-group">
+                    <label for="fromCurrency">From currency</label>
+                    <select class="form-control fromCurrency" name="fromCurrency" id="fromCurrency">
+                        <option>Select</option>
+                        <option id="fromGel" value="0">GEL</option>
+                        <option value="1">USD</option>
+                        <option value="2">GBP</option>
+                        <option value="3">RUB</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="toCurrency">To currency</label>
+                    <select class="form-control toCurrency" name="toCurrency" id="toCurrency">
+                        <option>Select</option>
+                        <option id="toGel" value="0">GEL</option>
+                        <option value="1">USD</option>
+                        <option value="2">GBP</option>
+                        <option value="3">RUB</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label for="example">Select Date</label>
+                <input placeholder="Select date" type="date" name="Date" id="example" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="amountToConvert">Amount to convert</label>
+                <input type="text" class="form-control" name="amountToConvert" id="amountToConvert" placeholder="Amount in your current currency">
+            </div>
+            <button type="submit" class="btn btn-success" onclick="AjaxFormSubmit()" id="btnsubmit">Convert</button>
+        </form>
+    </div>
+    <br><br>
+    <hr>
+    <br><br>
+    <label for="TableOfContent">Latest conversions</label>
+    <div id="TableOfContent" class="table-responsive-lg">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Client name</th>
+                    <th scope="col">Personal number</th>
+                    <th scope="col">From currency</th>
+                    <th scope="col">To currency</th>
+                    <th scope="col">Origin amount</th>
+                    <th scope="col">Converted amount</th>
+                    <th scope="col">Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var items in Model)
+                {
+                    <tr>
+                        <td>@items.Date</td>
+                        <td>@items.ClientName</td>
+                        <td>@items.PersonalNumber</td>
+                        <td>@items.FromCurrency</td>
+                        <td>@items.ToCurrency</td>
+                        <td>@items.OriginAmount</td>
+                        <td>@items.ConvertedAmount</td>
+                        <td>@items.Rate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
+
+
+
+<script>
+    //$(document).ready(function () {
+    //    $("#btnsubmit").click(function (e) {
+    //        //Serialize the form datas.  
+    //        var valdata = $("#requestConversion").serialize();
+    //        //to get alert popup  
+    //        alert(valdata);
+    //        //$.ajax({
+    //        //    url: "~/ConversionForm/",
+    //        //    type: "POST",
+    //        //    dataType: 'json',
+    //        //    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    //        //    data: valdata
+    //        //});
+    //    });
+    //});
+    $(".fromCurrency").on('change', function () {
+        if ($(this).val() == 0) {
+            $("#toGel").attr("disabled", true);
+        }
+        else {
+            $("#toGel").attr("disabled", false);
+        }
+    });
+    $(".toCurrency").on('change',function () {
+        if ($(this).val() == 0) {
+            $("#fromGel").attr("disabled", true);
+        }
+        else {
+            $("#fromGel").attr("disabled", false);
+        }
+    });
+    function AjaxFormSubmit() {
+        //Add the Field values to FormData object.
+        var formData = new FormData();
+        formData.append("clientName", $("#clientName").val());
+        formData.append("personalNumber", $("#personalNumber").val());
+        formData.append("fromCurrency", $("#fromCurrency").val());
+        formData.append("toCurrency", $("#toCurrency").val());
+        formData.append("Date", $("#Date").val());
+        formData.append("amountToConvert", $("#amountToConvert").val());
+
+        $.ajax({
+            type: 'POST',
+            url: '/ConversionForm',
+            data: formData,
+            processData: false,
+            contentType: false
+        }).done(function (response) {
+            if (response.Status === "success") {
+                $("#lblName").html(response.Name);
+            }
+        });
+    }
+
+    function validateNumber(e) {
+        const pattern = /^[0-9]$/;
+        return pattern.test(e.key)
+    }
+
+    function validate() {
+        var validName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+        var name = document.getElementById('clientName').value;
+        var personalnum = document.getElementById('personalNumber').value;
+        if (personalnum.length != 11) {
+            alert('You entered incorrect personal number, please double check and try again.');
+            return false;
+        }
+        if (!validName.test(name)) {
+            alert('Please enter your full name (first & last name).');
+            document.getElementById('clientName').focus();
+            return false;
+        }
+        return true;
+    }
+</script>

@@ -9,7 +9,7 @@ namespace CurrencyExchange.Core.Repository
 {
     public interface IExchangeRepository
     {
-        Task<int> AddExchangeDataAsync(IExchangeData model);
+        Task AddExchangeDataAsync(IExchangeData model);
         Task DeleteExchangeDataAsync(int id);
         Task<List<IExchangeData>> GetAllExchangeDatasAsync();
     }

@@ -25,11 +25,11 @@ namespace CurrencyExchange.Infrastructure.Repository
             return mapper.Map<List<IExchangeData>>(records);
         }
 
-        public async Task<int> AddExchangeDataAsync(IExchangeData model)
+        public async Task AddExchangeDataAsync(IExchangeData model)
         {
-            context.ExchangeDatas.Add(mapper.Map<ExchangeDataDto>(model));
+            var item = mapper.Map<ExchangeDataDto>(model);
+            context.ExchangeDatas.Add(item);
             await context.SaveChangesAsync();
-            return model.Id;
         }
 
         public async Task DeleteExchangeDataAsync(int id)

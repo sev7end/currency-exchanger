@@ -10,6 +10,6 @@ namespace CurrencyExchange.Infrastructure.Models
     public class CurrencyDatas
     {
         public DateTime date { get; set; }
-        public List<ICurrency> currencies { get; set; }
+        public List<CurrencyModel> currencies { get; set; }
     }
 }

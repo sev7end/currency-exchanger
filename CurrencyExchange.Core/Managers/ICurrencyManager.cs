@@ -10,7 +10,7 @@ namespace CurrencyExchange.Core.Managers
 {
     public interface ICurrencyManager
     {
-        Task<bool> GetCurrencyUpdate();
+        Task GetCurrencyUpdate();
         Task<ICurrency> GetCurrencyRate(CurrencyType type);
     }
 }

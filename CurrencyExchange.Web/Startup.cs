@@ -28,7 +28,7 @@ namespace CurrencyExchange.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(MappingProfile));
             services.AddControllersWithViews();
             services.AddDbContext<ExchangeCurrencyContext>(options
                 => options.UseSqlServer(Configuration.GetConnectionString("CurrencyExchange")));

@@ -9,7 +9,7 @@ namespace CurrencyExchange.Core.Repository
 {
     public interface ICurrencyRepository
     {
-        Task<ICurrency> AddCurrencyAsync(ICurrency model);
+        Task AddCurrencyAsync(ICurrency model);
         Task DeleteCurrencyAsync(int id);
         Task<List<ICurrency>> GetAllCurrencyDatasAsync();
         Task UpdateCurrencyDatas(List<ICurrency> newData);

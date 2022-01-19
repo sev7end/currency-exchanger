@@ -9,6 +9,7 @@ namespace CurrencyExchange.Infrastructure.Models
 {
     public class CurrencyModel : ICurrency
     {
+        public int Id { get; set; }
         public string code { get; set; }
         public int quantity { get; set; }
         public string rateFormated { get; set; }

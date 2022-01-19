@@ -24,22 +24,28 @@ namespace CurrencyExchange.Infrastructure.Repository
             this.mapper = mapper;
         }
 
-        public async Task<ICurrency> AddCurrencyAsync(ICurrency model)
+        public async Task AddCurrencyAsync(ICurrency model)
         {
-            context.ExchangeRates.Add(mapper.Map<CurrencyDto>(model));
+            var cModel = model as CurrencyModel;
+            var item = mapper.Map<CurrencyDto>(cModel);
+            context.ExchangeRates.Add(item);
             await context.SaveChangesAsync();
-            return model;
         }
 
-        public async Task DeleteCurrencyAsync(int id)
+        public Task DeleteCurrencyAsync(int id)
         {
-            var record = await context.ExchangeRates.FirstOrDefaultAsync(o => o.Id == id);
-            if (record != null)
-            {
-                context.ExchangeRates.Remove(record);
-                await context.SaveChangesAsync();
-            }
+            throw new NotImplementedException();
         }
+
+        //public async Task DeleteCurrencyAsync(int id)
+        //{
+        //    var record = await context.ExchangeRates.FirstOrDefaultAsync(o => o.Id == id);
+        //    if (record != null)
+        //    {
+        //        context.ExchangeRates.Remove(record);
+        //        await context.SaveChangesAsync();
+        //    }
+        //}
 
         public async Task<List<ICurrency>> GetAllCurrencyDatasAsync()
         {
@@ -50,13 +56,25 @@ namespace CurrencyExchange.Infrastructure.Repository
         public async Task<ICurrency> GetCurrencyByCode(string code)
         {
             var record = await context.ExchangeRates.FirstOrDefaultAsync(o=> o.code == code);
-            return mapper.Map<ICurrency>(record);
+            var item = mapper.Map<ICurrency>(record);
+            return item;
         }
 
         public async Task UpdateCurrencyDatas(List<ICurrency> newData)
         {
-            context.ExchangeRates = mapper.Map<DbSet<CurrencyDto>>(newData);
-            await context.SaveChangesAsync();
+            if (context.ExchangeRates.Count() != 0)
+            {
+                foreach (var item in context.ExchangeRates)
+                {
+                    context.ExchangeRates.Remove(item);
+                }
+                await context.SaveChangesAsync();
+            }
+            if (newData.Count == 0) return;
+            foreach(var item in newData)
+            {
+                await AddCurrencyAsync(item);
+            }
         }
     }
 }

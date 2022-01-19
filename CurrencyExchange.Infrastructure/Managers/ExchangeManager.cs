@@ -22,9 +22,8 @@ namespace CurrencyExchange.Infrastructure.Managers
             this.currencyManager = currencyManager;
             this.exchangeRepository = exchangeRepository;
         }
-        public async Task<IExchangeData> RequestCurrencyExchange(string clientName, string personalNumber, int fromCurrency, int toCurrency, decimal amount)
+        public async Task RequestCurrencyExchange(string clientName, string personalNumber, int fromCurrency, int toCurrency, decimal amount)
         {
-            await currencyManager.GetCurrencyUpdate();
             IExchangeData ConversionData = new ExchangeDataModel()
             {
                 ClientName = clientName,
@@ -34,20 +33,20 @@ namespace CurrencyExchange.Infrastructure.Managers
                 FromCurrency = (CurrencyType)fromCurrency,
                 ToCurrency = (CurrencyType)toCurrency,
             };
-            CurrencyModel currencyData = new CurrencyModel();
+            await currencyManager.GetCurrencyUpdate();//works
+            ICurrency currencyData = new CurrencyModel();
             if ((CurrencyType)fromCurrency == CurrencyType.GEL)
             {
-                currencyData = await currencyManager.GetCurrencyRate((CurrencyType)toCurrency) as CurrencyModel;
+                currencyData = await currencyManager.GetCurrencyRate((CurrencyType)toCurrency);
                 ConversionData.ConvertedAmount = (amount / currencyData.rate) * currencyData.quantity;
             }
             else
             {
-                currencyData = await currencyManager.GetCurrencyRate((CurrencyType)fromCurrency) as CurrencyModel;
+                currencyData = await currencyManager.GetCurrencyRate((CurrencyType)fromCurrency);
                 ConversionData.ConvertedAmount = (amount * currencyData.rate) / currencyData.quantity;
             }
             ConversionData.Rate = currencyData.rate;
-            ConversionData.Id = await exchangeRepository.AddExchangeDataAsync(ConversionData);
-            return ConversionData;
+            await exchangeRepository.AddExchangeDataAsync(ConversionData);
         }
     }
 }

@@ -8,6 +8,7 @@ namespace CurrencyExchange.Core.Models
 {
     public interface ICurrency
     {
+        int Id { get; set; }
         string code { get; set; }
         DateTime date { get; set; }
         decimal diff { get; set; }
