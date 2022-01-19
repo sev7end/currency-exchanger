@@ -33,7 +33,7 @@ namespace CurrencyExchange.Infrastructure.Managers
                 FromCurrency = (CurrencyType)fromCurrency,
                 ToCurrency = (CurrencyType)toCurrency,
             };
-            await currencyManager.GetCurrencyUpdate();//works
+            await currencyManager.GetCurrencyUpdate();
             ICurrency currencyData = new CurrencyModel();
             if ((CurrencyType)fromCurrency == CurrencyType.GEL)
             {

@@ -1,6 +1,5 @@
 ﻿@model List<CurrencyExchange.Core.Models.IExchangeData>
-    @*@model CurrencyExchange.Web.Models.ConversionRequestViewModel*@
-@*@model CurrencyExchange.Web.Models.ConversionRequestViewModel;*@
+
 @{
     ViewData["Title"] = "Conversion Center";
 }
@@ -88,21 +87,6 @@
 
 
 <script>
-    //$(document).ready(function () {
-    //    $("#btnsubmit").click(function (e) {
-    //        //Serialize the form datas.  
-    //        var valdata = $("#requestConversion").serialize();
-    //        //to get alert popup  
-    //        alert(valdata);
-    //        //$.ajax({
-    //        //    url: "~/ConversionForm/",
-    //        //    type: "POST",
-    //        //    dataType: 'json',
-    //        //    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-    //        //    data: valdata
-    //        //});
-    //    });
-    //});
     $(".fromCurrency").on('change', function () {
         if ($(this).val() == 0) {
             $("#toGel").attr("disabled", true);
@@ -119,8 +103,8 @@
             $("#fromGel").attr("disabled", false);
         }
     });
+
     function AjaxFormSubmit() {
-        //Add the Field values to FormData object.
         var formData = new FormData();
         formData.append("clientName", $("#clientName").val());
         formData.append("personalNumber", $("#personalNumber").val());
